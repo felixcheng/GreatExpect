@@ -1,5 +1,6 @@
 
-var gExApp = angular.module('gExApp', ['ngRoute', 'GExControllers']);
+
+var gExApp = angular.module('gExApp', ['ngRoute', 'ngResource' 'GExControllers']);
 
 gExApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 		$routeProvider.

@@ -1,16 +1,19 @@
 <div>
 	<form novalidate class="newShare">
 
-		Share Code: <input type="text" ng-model="share.code" /><br />
-		Price: <input type="number" ng-model="share.price" /> for <input type="number" ng-model="share.unit" /> shares<br />
+		Share Code: <input type="text" required ng-model="share.code" /><br />
+		Price: <input type="number" required ng-model="share.price" /> for <input type="number" required ng-model="share.unit" /> shares<br />
+
 		Investment Type: <input type="radio" ng-model="share.type" value="Long-term" />Long-term
 		<input type="radio" ng-model="share.type" value="Short-term" />Short-term<br />
-		Goal: <input type="number" ng-model="share.goal" />
-		<button ng-click="reset()">RESET</button>
-		<button ng-click="update(share)">SAVE</button>
+		Goal: <input type="number" required ng-model="share.goal" />%<br />
+		Stop-Loss: <input type="number" required ng-model="share.stopLoss" />%<br />
 
-		<button ng-click="go('/portfo')">To Portfolio</button>
-		<a href="#/portfo">Go to About></a>
+		<button ng-click="reset()">RESET</button>
+		<button ng-click="update(share)">SAVE</button><br />
+		<pre>share = {{share | json}}</pre>
+
+		<a href="#/portfo">Go to Portfolio</a>
 
 	</form>
 </div>
