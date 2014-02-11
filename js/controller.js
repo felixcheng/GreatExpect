@@ -1,7 +1,7 @@
  var dataRef = new Firebase("https://resplendent-fire-8717.firebaseio.com");
-var GExControllers = angular.module('GExControllers', []);
+var gExControllers = angular.module('gExControllers', ['gExServices']);
 
-GExControllers.controller('InputCtrl', ['$scope', 
+gExControllers.controller('InputCtrl', ['$scope', 
 	function($scope){
 		$scope.empty = {};
 
@@ -23,7 +23,17 @@ GExControllers.controller('InputCtrl', ['$scope',
 };
 }]);
 
-GExControllers.controller('PortfolioCtrl', ['$scope', 
+gExControllers.controller('PortfolioCtrl', ['$scope',
 	function($scope){
-		
-}]);
+	  $scope.shares = {};
+		var tempArr = []
+		dataRef.on('value', function(snapshot) {
+		  tempArr.push(snapshot.val());
+			for (var n in tempArr[0]){
+				$scope.shares[n] = tempArr[0][n];
+			}
+			$scope.$apply();
+		});
+
+	}
+]);

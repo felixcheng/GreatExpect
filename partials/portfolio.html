@@ -1,4 +1,34 @@
 <h3>Portfoilo View</h3>
 
+	<div>
+		<table>
+		<colgroup>
+			<col id="Code" />
+			<col id="Purchase Price" />
+			<col id="Volume" />
+			<col id="Goal" />
+			<col id="Stop Loss" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope='col'> Code </th>
+				<th scope='col'> Purchase Price </th>
+				<th scope='col'> Volume </th>
+				<th scope='col'> Goal </th>
+				<th scope='col'> Stop Loss </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="share in shares" class="shareList">
+				<td> {{share.code}} </td>
+				<td> {{share.price}} </td>
+				<td> {{share.unit}} </td>
+				<td> {{share.goal}} </td>
+				<td> {{share.stopLoss}} </td>
+			</tr>
+		</tbody>
+				
+		</table>
+	</div>
 	
-	<a href="#/index">Go to Add more shares</a>
+<a href="#/index">Go to Add more shares</a>>
