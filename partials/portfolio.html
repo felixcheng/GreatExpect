@@ -1,36 +1,50 @@
 <h3>Portfoilo View</h3>
 
-	<div>
-		<table>
-		<colgroup>
-			<col id="Code" />
-			<col id="Purchase Price" />
-			<col id="Volume" />
-			<col id="Goal" />
-			<col id="Stop Loss" />
-		</colgroup>
-		<thead>
-			<tr>
-				<th scope='col'> Code </th>
-				<th scope='col'> Purchase Price </th>
-				<th scope='col'> Volume </th>
-				<th scope='col'> Goal </th>
-				<th scope='col'> Stop Loss </th>
-				<th scope='col'> Delete </th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="share in shares" class="shareList">
-				<td> {{share.code}} </td>
-				<td> {{share.price}} </td>
-				<td> {{share.unit}} </td>
-				<td> {{share.goal}} </td>
-				<td> {{share.stopLoss}} </td>
-				<td><button ng-click="delete(share)">DELETE</button></td>
-			</tr>
-		</tbody>
-				
-		</table>
+			<div>
+				<!-- <div class='sidebar'>
+					Search: <input ng-model='query'>
+					Sort by:
+					<select ng-model='orderProp'>
+						<option value='PurDate'>Purchase Date</option>
+						<option value='price'>Purchase Price</option> -->
+				</div>
+				<div class='maintb'>
+					<table>
+					<colgroup>
+						<col id="Code" />
+						<col id="Purchase Price" />
+						<col id="Volume" />
+						<col id="Goal" />
+						<col id="Purchase Date" />
+						<col id="Stop Loss" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope='col'> Code </th>
+							<th scope='col'> Purchase Price </th>
+							<th scope='col'> Volume </th>
+							<th scope='col'> Goal </th>
+							<th scope='col'> Stop Loss </th>
+							<th scope='col'> Purchase Date </th>
+							<th scope='col'> Delete </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="share in shares">
+<!-- 						<tr ng-repeat="share in shares | filter:query | orderBy:OrderProp" class="shareList"> -->
+							<td> {{share.code}} </td>
+							<td> {{share.price|currency}} </td>
+							<td> {{share.unit}} </td>
+							<td> {{share.goal| currency}} </td>
+							<td> {{share.stopLoss| currency}} </td>
+							<td> {{share.PurDate}} </td>
+							<td><button ng-click="delete(share)">DELETE</button></td>
+						</tr>
+					</tbody>
+							
+					</table>
+					
+		</div>
 	</div>
 	
 <a href="#/index">Go to Add more shares</a>>

@@ -1,8 +1,8 @@
 var dataRef = new Firebase("https://resplendent-fire-8717.firebaseio.com/shares/");
 var gExControllers = angular.module('gExControllers', ['gExServices', 'firebase']);
 
-gExControllers.controller('InputCtrl', ['$scope', 
-	function($scope){
+gExControllers.controller('InputCtrl', ['$scope', '$http',
+	function($scope, $http){
 		$scope.empty = {};
 
 		$scope.update = function(share){
@@ -10,7 +10,9 @@ gExControllers.controller('InputCtrl', ['$scope',
 			var dataShare = new Firebase("https://resplendent-fire-8717.firebaseio.com/shares/" + time.toString());
 			var goalPrice = (1+share.goal/100) * share.price;
 			var stopPrice = (1-share.stopLoss/100) * share.price;
-			dataShare.set({code: share.code, price: share.price, unit:share.unit, goal:goalPrice, stopLoss:stopPrice});
+			dataShare.set({code: share.code, price: share.price, unit:share.unit, goal:goalPrice, 
+				stopLoss:stopPrice, PurDate: time.toDateString()});
+			$scope.share = angular.copy($scope.empty);	
 		};
 
 		$scope.reset = function(){
@@ -22,6 +24,11 @@ gExControllers.controller('InputCtrl', ['$scope',
 		$scope.go = function ( path ) {
   		$location.path( path );
 		};
+
+		// $http.OPTIONS('http://localhost:3000/session/create').success(function(data)
+		// 	{ console.log(data); })
+
+		// $http.get('http://finance.yahoo.com/webservice/v1/symbols/goog/quote?format=json').success(console.log(data));
 }]);
 
 gExControllers.controller('PortfolioCtrl', ['$scope',

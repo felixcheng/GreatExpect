@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+var requesta = require('request');
+var cheerio = require('cheerio');
 
 var util = require('util'),
     http = require('http'),
@@ -239,6 +241,26 @@ StaticServlet.prototype.writeDirectoryIndex_ = function(req, res, path, files) {
   res.write('</ol>');
   res.end();
 };
+
+// var url = "http://www.imdb.com/chart/";
+
+  // requesta({
+  //           "uri": url
+  //       }, function(err, resp, body){
+  //    var $ = cheerio.load(body);
+      
+  //    var strContent = "";
+  //         $('th:contains(Gross)').parents('table').find('tr').each(function(index,item){
+  //          if(index>0)
+  //          {
+  //             var tds = $(item).find('td');
+  //             strContent += $(tds.eq(1)).find('a').text().trim() + "," 
+  //      + tds.eq(2).text().trim() + "," + tds.eq(3).text().trim()+ "\r\n";
+  //          }
+  //          });
+       
+  //          console.log(strContent);
+  //  }); 
 
 // Must be last,
 main(process.argv);
