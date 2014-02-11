@@ -1,6 +1,5 @@
 
-
-var gExApp = angular.module('gExApp', ['ngRoute', 'ngResource', 'gExControllers', 'gExServices']);
+var gExApp = angular.module('gExApp', ['ngRoute', 'ngResource', 'gExControllers', 'gExServices', "firebase"]);
 
 gExApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 		$routeProvider.

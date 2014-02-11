@@ -16,6 +16,7 @@
 				<th scope='col'> Volume </th>
 				<th scope='col'> Goal </th>
 				<th scope='col'> Stop Loss </th>
+				<th scope='col'> Delete </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,6 +26,7 @@
 				<td> {{share.unit}} </td>
 				<td> {{share.goal}} </td>
 				<td> {{share.stopLoss}} </td>
+				<td><button ng-click="delete(share)">DELETE</button></td>
 			</tr>
 		</tbody>
 				
