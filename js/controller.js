@@ -33,13 +33,14 @@ gExControllers.controller('InputCtrl', ['$scope', '$http',
 
 gExControllers.controller('PortfolioCtrl', ['$scope',
 	function($scope){
-	  $scope.shares = {};
-		var tempArr = []
+	  $scope.shares = [];
 		dataRef.on('value', function(snapshot) {
-		  tempArr.push(snapshot.val());
-			for (var n in tempArr[0]){
-				$scope.shares[n] = tempArr[0][n];
+		  var obj = snapshot.val();
+		  $scope.shares = [];
+			for (var key in obj){
+				$scope.shares.push(obj[key]);
 			}
+			console.log($scope.shares);
 			$scope.$apply();
 		});
 

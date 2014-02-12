@@ -1,23 +1,24 @@
 <h3>Portfoilo View</h3>
-
 			<div>
-				<!-- <div class='sidebar'>
-					Search: <input ng-model='query'>
+				<div class="sidebar">
+					Search: <input ng-model='searchTerm'>
 					Sort by:
 					<select ng-model='orderProp'>
 						<option value='PurDate'>Purchase Date</option>
-						<option value='price'>Purchase Price</option> -->
+						<option value='price'>Purchase Price</option>
+					</select>
 				</div>
-				<div class='maintb'>
-					<table>
-					<colgroup>
+
+				<div class="mainbody">
+					<table class='tbl'>
+<!-- 				<colgroup>
 						<col id="Code" />
 						<col id="Purchase Price" />
 						<col id="Volume" />
 						<col id="Goal" />
 						<col id="Purchase Date" />
 						<col id="Stop Loss" />
-					</colgroup>
+					</colgroup> -->
 					<thead>
 						<tr>
 							<th scope='col'> Code </th>
@@ -30,8 +31,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="share in shares">
-<!-- 						<tr ng-repeat="share in shares | filter:query | orderBy:OrderProp" class="shareList"> -->
+						<tr ng-repeat="share in shares | filter:{ code: searchTerm } " class="shareList">
 							<td> {{share.code}} </td>
 							<td> {{share.price|currency}} </td>
 							<td> {{share.unit}} </td>
@@ -43,8 +43,8 @@
 					</tbody>
 							
 					</table>
-					
-		</div>
-	</div>
+				</div>
+			</div>	
+
 	
-<a href="#/index">Go to Add more shares</a>>
+<a href="#/index">Go to Add more shares</a>

@@ -1,0 +1,28 @@
+{
+  "name": "felixcheng",
+  "version": "0.0.0",
+  "description": "Portfolio",
+  "main": "angular.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixcheng/GreatExpect.git"
+  },
+  "keywords": [
+    "portfolio",
+    "personal",
+    "project"
+  ],
+  "author": "felix-cheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixcheng/GreatExpect/issues"
+  },
+  "homepage": "https://github.com/felixcheng/GreatExpect",
+  "dependencies": {
+    "logfmt": "~0.20.0",
+    "express": "~3.4.8"
+  }
+}
